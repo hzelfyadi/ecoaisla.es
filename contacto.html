@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.png">
+    <title>ecoaisla.es</title>
+    <link rel="stylesheet" href="css/enhanced-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#10B981">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="EcoAisla">
+    <meta name="application-name" content="EcoAisla">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#10B981">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2563eb">
+    <meta name="msapplication-TileColor" content="#2563eb">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: dark)">
+    
+    <!-- Preconnect & Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="stylesheet" href="">
+    
+    <!-- Critical CSS -->
+    <style>
+        /* Critical CSS will be inlined here */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1f2937;
+            --dark-gray: #4b5563;
+            --medium-gray: #6b7280;
+            --light-gray: #e5e7eb;
+            --lighter-gray: #f3f4f6;
+            --white: #ffffff;
+            --error: #ef4444;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* Critical above-the-fold styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-primary); line-height: 1.6; color: var(--dark); background: var(--white); margin: 0; padding: 0; }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px; position: relative; overflow: hidden; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2rem;
+            align-items: flex-start;
+            margin: 0;
+            padding: 2rem 0;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+    </style>
+    
+    <!-- Preload Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- AOS Animation -->
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/modern-theme.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/optimized.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/enhanced-styles.css">
+    <link rel="stylesheet" href="css/footer-styles.css">
+    <!-- Compact Design Override -->
+    <link rel="stylesheet" href="css/compact-styles.css" id="compact-styles" media="print" onload="this.media='all'">
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/modern-theme.css">
+        <link rel="stylesheet" href="css/form-styles.css">
+        <link rel="stylesheet" href="css/mobile-enhancements.css" media="screen and (max-width: 1024px)">
+        <link rel="stylesheet" href="css/responsive.css">
+    </noscript>
+    <style>
+      
+        .contact-form-container {
+            max-width: 800px;
+            margin: 1rem auto;
+            padding: 5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h1 {
+            color: #0f766e;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+        color: #0d9f6e;
+        font-size: 1.1rem;
+        align-items: center;
+        text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: flex;
+            color: #0d9f6e;
+            font-weight: 700;
+            font-size: 1.2rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+
+        .btn-submit {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #0d9f6e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .form-message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
+
+        /*
+  Responsive Pro CSS – All-Devices @media Framework
+  Purpose: Drop-in responsive design baseline for websites and web apps.
+  Approach: CSS variables + fluid type + sensible breakpoints + accessibility.
+  Author: Your Name
+  How to use: Link this file after any reset/normalize. Customize tokens below.
+*/
+
+/* ------------------------------
+   1) Design Tokens (edit these)
+------------------------------- */
+:root {
+  /* Color system */
+  --bg: #0b0c10;                 /* page background */
+  --surface: #11131a;            /* card/nav background */
+  --text: #eaeef3;               /* primary text */
+  --muted: #a6b0bf;              /* secondary text */
+  --brand: #4f7cff;              /* primary brand color */
+  --brand-contrast: #ffffff;
+  --border: #253047;
+  --success: #2ecc71;
+  --warning: #f1c40f;
+  --danger:  #e74c3c;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.12);
+  --shadow-md: 0 6px 16px rgba(0,0,0,.18);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,.28);
+
+  /* Radii */
+  --radius-xs: .375rem; /* 6px */
+  --radius-sm: .5rem;   /* 8px */
+  --radius-md: .75rem;  /* 12px */
+  --radius-lg: 1rem;    /* 16px */
+  --radius-xl: 1.25rem; /* 20px */
+
+  /* Spacing scale */
+  --space-1: .25rem;  /* 4px */
+  --space-2: .5rem;   /* 8px */
+  --space-3: .75rem;  /* 12px */
+  --space-4: 1rem;    /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem;  /* 24px */
+  --space-7: 2rem;    /* 32px */
+  --space-8: 2.5rem;  /* 40px */
+  --space-9: 3rem;    /* 48px */
+
+  /* Type scale (fluid via clamp) */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --fs-1: clamp(0.75rem, 0.73rem + 0.1vw, 0.82rem);
+  --fs-2: clamp(0.875rem, 0.85rem + 0.2vw, 1rem);
+  --fs-3: clamp(1rem, 0.9rem + 0.6vw, 1.25rem);
+  --fs-4: clamp(1.25rem, 1.05rem + 1vw, 1.625rem);
+  --fs-5: clamp(1.5rem, 1.2rem + 1.8vw, 2.125rem);
+  --fs-6: clamp(1.875rem, 1.5rem + 2.4vw, 2.75rem);
+
+  /* Container widths */
+  --container-xs: 640px;
+  --container-sm: 768px;
+  --container-md: 1024px;
+  --container-lg: 1280px;
+  --container-xl: 1440px;
+
+  /* Grid */
+  --grid-gap: var(--space-6);
+}
+
+/* Optional system dark mode adjustments */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #e2e8f0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ------------------------------
+   2) Base / Layout
+------------------------------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: white;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+.container {
+  width: min(100% - 2rem, var(--container-lg));
+  margin-inline: auto;
+}
+
+/* Responsive container sizes */
+@media (min-width: 1536px) { .container { width: min(100% - 4rem, var(--container-xl)); } }
+@media (max-width: 1279.98px) { .container { width: min(100% - 2rem, var(--container-md)); } }
+@media (max-width: 1023.98px) { .container { width: min(100% - 1.5rem, var(--container-sm)); } }
+@media (max-width: 767.98px)  { .container { width: min(100% - 1rem, 100%); } }
+
+.section { padding-block: clamp(2rem, 2vw + 1rem, 5rem); }
+
+/* ------------------------------
+   3) Typography
+------------------------------- */
+small { font-size: var(--fs-1); color: var(--muted); }
+.p { font-size: var(--fs-2); }
+.h1 { font-size: var(--fs-6); line-height: 1.15; letter-spacing: -0.01em; }
+.h2 { font-size: var(--fs-5); line-height: 1.2; }
+.h3 { font-size: var(--fs-4); line-height: 1.25; }
+.h4 { font-size: var(--fs-3); line-height: 1.3; }
+.lead { font-size: var(--fs-3); color: var(--muted); max-width: 65ch; }
+
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ------------------------------
+   4) Grid & Flex Utilities
+------------------------------- */
+.row { display: grid; gap: var(--grid-gap); }
+.col { display: grid; gap: var(--space-4); }
+
+/* Mobile-first columns */
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Responsive grid helpers */
+@media (max-width: 1279.98px) {
+  .lg\:grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .lg\:grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 1023.98px) {
+  .md\:grid-1 { grid-template-columns: 1fr; }
+  .md\:grid-2 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767.98px) {
+  .sm\:grid-1 { grid-template-columns: 1fr; }
+}
+
+.flex { display: flex; gap: var(--space-4); }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+
+/* ------------------------------
+   5) Components: Card, Button, Inputs
+------------------------------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: clamp(1rem, 1vw + .75rem, 2rem);
+  box-shadow: var(--shadow-sm);
+}
+.card:hover { box-shadow: var(--shadow-md); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: .5rem;
+  padding: .75rem 1rem;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  border: 1px solid transparent;
+  background: var(--brand);
+  color: var(--brand-contrast);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+.btn.outline { background: transparent; color: var(--brand); border-color: var(--brand); }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn.block { width: 100%; }
+
+.input, .select, .textarea {
+  width: 100%;
+  background: color-mix(in oklab, var(--surface), #fff 2%);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: .75rem 1rem;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.input:focus, .select:focus, .textarea:focus {
+  border-color: color-mix(in oklab, var(--brand), #fff 20%);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand), transparent 80%);
+}
+
+/* ------------------------------
+   6) Navigation (responsive)
+------------------------------- */
+.navbar {
+  position: sticky; top: 0; z-index: 40;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--surface), #000 10%), var(--surface));
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+.navbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: .75rem 0; }
+.navbar .brand { font-weight: 800; font-size: var(--fs-3); letter-spacing: -0.01em; }
+.navbar .links { display: flex; gap: var(--space-5); }
+.navbar a { color: var(--muted); font-weight: 600; }
+.navbar a[aria-current="page"], .navbar a:hover { color: var(--text); }
+
+/* Mobile menu toggle pattern */
+.menu-toggle { display: none; }
+@media (max-width: 767.98px) {
+  .navbar .links { display: none; }
+  .menu-toggle { display: inline-flex; }
+  .mobile-menu { display: grid; gap: var(--space-3); padding: var(--space-4) 0; border-top: 1px solid var(--border); }
+}
+
+/* ------------------------------
+   7) Hero, Sections & Responsive Media
+------------------------------- */
+.hero {
+  display: grid; align-items: center;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(1rem, 2vw + 1rem, 4rem);
+  padding-block: clamp(2.5rem, 6vw, 7rem);
+}
+.hero .image { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
+.hero .kpis { display: grid; grid-auto-flow: column; gap: var(--space-7); align-items: center; }
+.kpi { text-align: center; }
+.kpi .num { font-size: var(--fs-5); font-weight: 800; }
+.kpi .label { color: var(--muted); font-weight: 600; }
+
+@media (max-width: 1023.98px) { .hero { grid-template-columns: 1fr; } .hero .kpis { grid-auto-flow: row; } }
+
+/* Media that keeps aspect ratio */
+.media-16x9 { aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius-lg); }
+.media-4x3  { aspect-ratio: 4 / 3;  overflow: hidden; border-radius: var(--radius-lg); }
+.media-1x1  { aspect-ratio: 1 / 1;  overflow: hidden; border-radius: var(--radius-lg); }
+.media-16x9 > * { width: 100%; height: 100%; object-fit: cover; }
+
+/* ------------------------------
+   8) Tables (responsive)
+------------------------------- */
+.table { width: 100%; border-collapse: collapse; font-size: var(--fs-2); }
+.table th, .table td { padding: .875rem 1rem; border-bottom: 1px solid var(--border); text-align: left; }
+.table thead th { color: var(--muted); font-weight: 700; }
+.table.striped tbody tr:nth-child(even) { background: color-mix(in oklab, var(--surface), #fff 3%); }
+
+/* Mobile: turn table into cards */
+@media (max-width: 639.98px) {
+  .table { display: block; }
+  .table thead { display: none; }
+  .table tbody { display: grid; gap: var(--space-4); }
+  .table tr { display: grid; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); }
+  .table td { display: grid; grid-template-columns: 10ch 1fr; border: 0; padding: 0; gap: var(--space-2); }
+  .table td::before { content: attr(data-label); color: var(--muted); font-weight: 600; }
+}
+
+/* ------------------------------
+   9) Layout Patterns: Sidebar + Content
+------------------------------- */
+.layout {
+  display: grid; grid-template-columns: 280px 1fr; gap: var(--space-7);
+}
+.sidebar {
+  position: sticky; top: calc(64px + 1rem); align-self: start;
+  display: grid; gap: var(--space-2);
+}
+.sidebar .group { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-3); }
+.sidebar a { display: grid; grid-auto-flow: column; justify-content: start; align-items: center; gap: .6rem; padding: .5rem .75rem; border-radius: var(--radius-md); color: var(--muted); font-weight: 600; }
+.sidebar a:hover, .sidebar a[aria-current="page"] { background: color-mix(in oklab, var(--surface), #fff 2%); color: var(--text); }
+
+@media (max-width: 1023.98px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+}
+
+/* ------------------------------
+   10) Utilities
+------------------------------- */
+.hide { display: none !important; }
+.center { margin-inline: auto; }
+.max-w-prose { max-width: 65ch; }
+.text-muted { color: var(--muted); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mb-6 { margin-bottom: var(--space-6); }
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+
+/* Touch targets on coarse pointers */
+@media (pointer: coarse) {
+  .btn, .input, .select { min-height: 44px; }
+}
+
+/* Hover alternatives on touch devices */
+@media (hover: none) {
+  a:hover { text-decoration: none; }
+  .btn:hover { transform: none; }
+}
+
+/* ------------------------------
+   11) Breakpoint Reference
+   - 1440px+   : desktops / wide
+   - 1280px    : laptops / base container
+   - 1024px    : tablets landscape
+   - 768px     : tablets portrait
+   - 640px     : large phones
+   - <640px    : phones
+------------------------------- */
+@media (min-width: 1440px) {
+  :root { --grid-gap: var(--space-8); }
+}
+@media (max-width: 1279.98px) {
+  :root { --grid-gap: var(--space-7); }
+}
+@media (max-width: 1023.98px) {
+  :root { --grid-gap: var(--space-6); }
+}
+@media (max-width: 767.98px) {
+  :root { --grid-gap: var(--space-5); }
+  .navbar .wrap { padding-block: .5rem; }
+}
+@media (max-width: 639.98px) {
+  .hero .kpis { gap: var(--space-5); }
+}
+
+/* ------------------------------
+   12) Example: Responsive Footer
+------------------------------- */
+.footer {
+  margin-top: var(--space-9);
+  padding-block: var(--space-7);
+  border-top: 1px solid var(--border);
+  background: linear-gradient(0deg, color-mix(in oklab, var(--surface), #000 8%), transparent);
+}
+.footer .grid { display: grid; gap: var(--space-7); grid-template-columns: repeat(4, 1fr); }
+.footer .brand { font-weight: 800; font-size: var(--fs-3); }
+.footer a { color: var(--muted); }
+.footer a:hover { color: var(--text); }
+.footer .legal { color: var(--muted); font-size: var(--fs-1); margin-top: var(--space-7); }
+
+@media (max-width: 1023.98px) { .footer .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 639.98px)  { .footer .grid { grid-template-columns: 1fr; } }
+
+/* ------------------------------
+   13) Message/Alert banners
+------------------------------- */
+.alert { border-radius: var(--radius-md); padding: .75rem 1rem; border: 1px solid var(--border); }
+.alert.success { background: color-mix(in oklab, var(--success), transparent 85%); border-color: color-mix(in oklab, var(--success), transparent 60%); }
+.alert.warning { background: color-mix(in oklab, var(--warning), transparent 88%); border-color: color-mix(in oklab, var(--warning), transparent 65%); }
+.alert.danger  { background: color-mix(in oklab, var(--danger),  transparent 88%); border-color: color-mix(in oklab, var(--danger),  transparent 65%); }
+
+/* ------------------------------
+   14) Print styles (optional)
+------------------------------- */
+@media print {
+  * { box-shadow: none !important; background: transparent !important; }
+  a::after { content: " (" attr(href) ")"; font-size: .9em; color: #666; }
+  .navbar, .footer { display: none; }
+  .btn { display: none; }
+
+.footer{
+  margin: 4rem;
+  padding: 4rem;
+}
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <!-- Your existing header content -->
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Ecoaisla Logo" class="logo-img">
+                <span>ecoaisla.es</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Menú principal">
+              <ul class="nav-links">
+                  <li><a href="index.html#inicio" class="nav-link active" data-link="inicio">
+                      <i class="fas fa-home"></i> Inicio
+                  </a></li>
+                  <li><a href="index.html#por-que-aislar" class="nav-link" data-link="beneficios">
+                      <i class="fas fa-star"></i> Beneficios
+                  </a></li>
+                  <li><a href="index.html#por-que-1euro" class="nav-link" data-link="por-que-1euro">
+                      <i class="fas fa-euro-sign"></i> ¿Por qué 1€?
+                  </a></li>
+                  <li><a href="index.html#como-funciona" class="nav-link" data-link="como-funciona">
+                      <i class="fas fa-cogs"></i> Cómo funciona
+                  </a></li>
+                  <li><a href="index.html#faq" class="nav-link" data-link="preguntas">
+                      <i class="fas fa-question-circle"></i> Preguntas
+                  </a></li>
+                  <li><a href="index.html#trustpilot-widget aos-init aos-animate" class="nav-link" data-link="testimonios">
+                      <i class="fas fa-star"></i> Reseñas
+                  </a></li>
+              </ul>
+                  <div class="nav-cta">
+                      <a href="contacto.html" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contacto</a>
+                  </div>
+              </div>
+          </nav>
+        </div>
+    </header>
+    
+
+  <!-- Main Content -->
+   <section>
+    <div class="et_pb_row et_pb_row_9">
+      <img width="480" height="81" src="img/aislamiento-1-euro-estafa-o-no.png" alt="">
+  </div>
+    <main>
+      <div class="contact-form-container">
+          <div class="form-header">
+              <h1>Contacta con Nosotros</h1>
+              <p>Rellena el formulario y nos pondremos en contacto contigo lo antes posible</p>
+          </div>
+          
+          <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                  <label for="fullName">Nombre completo *</label>
+                  <input type="text" id="fullName" name="fullName" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="phone">Teléfono (9 dígitos) *</label>
+                  <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{9}" title="Por favor, introduce un número de teléfono válido de 9 dígitos" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="address">Dirección *</label>
+                  <input type="text" id="address" name="address" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="city">Ciudad *</label>
+                  <input type="text" id="city" name="city" class="form-control" required>
+              </div>
+              
+              <button type="submit" class="btn-submit">
+                  <i class="fas fa-paper-plane"></i> Enviar Solicitud
+              </button>
+              
+              <div id="formMessage" class="form-message"></div>
+          </form>
+      </div>
+  </main>
+   </section>
+
+    <body>
+      
+      <footer class="site-footer"></footer>
+      <div class="footer-container">
+        <!-- Company Info -->
+        <div class="footer-section company-info">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Ecoaisla Logo" width="50" height="50">
+                <h3>Ecoaisla</h3>
+            </div>
+            <p class="tagline">Haciendo hogares más eficientes con aislamiento térmico de calidad.</p>
+            <div class="social-links">
+                <a href="#form-container" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#form-container" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#form-container" class="social-link" aria-label="Twitter"><i class="fab fa-tiktok"></i></a>
+                <a href="#form-container" class="social-link" aria-label="LinkedIn"><i class="fab fa-google"></i></a>
+            </div>
+            <div class="trust-seals">
+                <div class="trust-seal">
+                    <i class="fas fa-check-circle" href="#form-container"></i>
+                    <span>Empresa certificada</span>
+                </div>
+                <div class="trust-seal">
+                    <i class="fas fa-leaf"></i>
+                    <span>Eco-friendly</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+            <h4 class="footer-heading">Navegación</h4>
+            <ul class="footer-nav">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#por-que-1euro">¿Por qué 1€?</a></li>
+                <li><a href="#como-funciona">Cómo funciona</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#faq">Preguntas Frecuentes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h4 class="footer-heading">Contacto</h4>
+            <address class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C/ Ejemplo, 123, 28001 Madrid</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+34900123456">900 123 456</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@ecoaisla.es">contact@ecoaisla.es</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Lun-Vie: 9:00 - 18:00</span>
+                </div>
+            </address>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-section newsletter">
+            <h4 class="footer-heading">Newsletter</h4>
+            <p>Suscríbete para recibir ofertas y consejos de eficiencia energética.</p>
+            <div class="nav-cta">
+                <a href="contacto.html" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contacto</a>
+            </div>
+            <div class="payment-methods">
+                <span>Métodos de pago:</span>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+          <p class="copyright">© <span id="current-year">2025</span> Ecoaisla. Todos los derechos reservados.</p>
+      </div>
+  </div>
+    </body>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Get form elements
+                const fullName = document.getElementById('fullName');
+                const phone = document.getElementById('phone');
+                const address = document.getElementById('address');
+                const city = document.getElementById('city');
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                
+                // Disable submit button to prevent multiple submissions
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                
+                try {
+                    // Send data to server
+                    const response = await fetch('http://localhost:3000/api/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            fullName: fullName.value.trim(),
+                            phone: phone.value.trim(),
+                            address: address.value.trim(),
+                            city: city.value.trim()
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(data.error || 'Error al enviar el formulario');
+                    }
+                    
+                    // Show success message
+                    showMessage('¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.', 'success');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage(error.message || 'Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.', 'error');
+                } finally {
+                    // Re-enable submit button
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }
+            });
+            
+            function showMessage(message, type) {
+                formMessage.textContent = message;
+                formMessage.className = `form-message ${type}`;
+                formMessage.style.display = 'block';
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+            
+            // Simulate server request (replace with actual fetch/axios call in production)
+            function simulateServerRequest(data) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        // In a real application, you would send this data to your server
+                        // and handle the response accordingly
+                        console.log('Data received by server:', data);
+                        resolve({ success: true });
+                    }, 1000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
